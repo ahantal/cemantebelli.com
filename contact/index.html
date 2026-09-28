@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Cem Antebelli</title>
+<meta name="description" content="Tell me a little about what you would like to learn and what you hope to achieve. I’ll get back to you so we can decide together where to start.">
+<link rel="canonical" href="https://cemantebelli.com/contact/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact | Cem Antebelli">
+<meta property="og:description" content="Tell me a little about what you would like to learn and what you hope to achieve. I’ll get back to you so we can decide together where to start.">
+<meta property="og:url" content="https://cemantebelli.com/contact/">
+<meta property="og:image" content="https://cemantebelli.com/assets/img/cem-portrait.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-row">
+    <a class="brand" href="/"><img src="/assets/img/logo.png" alt="Cem Antebelli, Turkish for Foreigners" width="95" height="54"></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="primary" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/turkish-lessons/">Turkish Lessons</a>
+      <a href="/about/">About Cem</a>
+      <a href="/english-lessons/">English Lessons</a>
+      <a href="/art-drawing/">Art &amp; Drawing</a>
+      <a href="/contact/" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap"><div class="narrow">
+      <span class="eyebrow">Contact</span>
+      <h1>Let’s Talk</h1>
+      <p class="lede">Tell me a little about what you would like to learn and what you hope to achieve.</p>
+      <p class="lede">I’ll get back to you so we can decide together where to start.</p>
+    </div></div>
+  </section>
+
+  <section style="padding-top:20px;">
+    <div class="wrap contact-grid">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="6c2331a1-3ac3-4e07-9d1b-7ffba067d0fc">
+        <input type="hidden" name="subject" value="New message from cemantebelli.com">
+        <input type="hidden" name="from_name" value="cemantebelli.com">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Name <span class="req">*</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required>
+            <p class="error">Please enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" autocomplete="email" required>
+            <p class="error">Please enter a valid email address.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-learn">What would you like to learn? <span class="req">*</span></label>
+          <select id="f-learn" name="What would you like to learn" required>
+            <option value="">Please choose</option>
+            <option>Turkish</option>
+            <option>English</option>
+            <option>Art &amp; Drawing</option>
+          </select>
+          <p class="error">Please choose what you would like to learn.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-level">Your current level</label>
+            <select id="f-level" name="Current level">
+              <option value="">Please choose</option>
+              <option>Beginner</option>
+              <option>Elementary</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-format">How would you prefer to learn?</label>
+            <select id="f-format" name="Preferred format">
+              <option value="">Please choose</option>
+              <option>Online</option>
+              <option>In person</option>
+              <option>Either</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-message">Tell me a little about what you would like to achieve. <span class="req">*</span></label>
+          <textarea id="f-message" name="message" required></textarea>
+          <p class="error">Please tell me a little about what you would like to achieve.</p>
+        </div>
+
+        <div class="field">
+          <label for="f-times">Preferred days / times</label>
+          <input type="text" id="f-times" name="Preferred days and times">
+        </div>
+
+        <p class="form-note"><span class="req" style="color:var(--clay);">*</span> Required fields</p>
+        <button type="submit" class="btn btn-primary">Send My Message</button>
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <aside class="contact-side">
+        <h3>Prefer email?</h3>
+        <p>You can also write to me directly:</p>
+        <p><a class="email" href="mailto:antebellicem@gmail.com">antebellicem@gmail.com</a></p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <strong>Cem Antebelli</strong>
+        <p>Personalized one-to-one Turkish lessons for foreigners living in Türkiye. Also English lessons and Art &amp; Drawing.</p>
+      </div>
+      <div>
+        <h4>Lessons</h4>
+        <ul>
+          <li><a href="/turkish-lessons/">Turkish Lessons</a></li>
+          <li><a href="/english-lessons/">English Lessons</a></li>
+          <li><a href="/art-drawing/">Art &amp; Drawing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="/about/">About Cem</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="mailto:antebellicem@gmail.com">antebellicem@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Cem Antebelli. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

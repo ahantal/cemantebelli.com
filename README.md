@@ -1,2 +1,2 @@
-# cemanteblli.com
-Cem Antebelli website
+# cemantebelli.com
+Cem Antebelli: Turkish lessons for foreigners in Türkiye (static site on GitHub Pages).
