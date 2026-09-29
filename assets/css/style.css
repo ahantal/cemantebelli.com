@@ -466,3 +466,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .foot-lang { border-color: rgba(255, 255, 255, 0.25); }
 footer.site .foot-lang a { color: #efe6dc; }
 footer.site .foot-lang span[aria-current] { background: #efe6dc; color: var(--ink); }
+.lesson-info { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0; margin: 28px 0 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); overflow: hidden; }
+.lesson-info div { padding: 14px 20px; border-right: 1px solid var(--line); }
+.lesson-info div:last-child { border-right: 0; }
+.lesson-info dt { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 4px; }
+.lesson-info dd { margin: 0; font-weight: 600; color: var(--ink); }
+@media (max-width: 640px) { .lesson-info { grid-template-columns: 1fr; } .lesson-info div { border-right: 0; border-bottom: 1px solid var(--line); } .lesson-info div:last-child { border-bottom: 0; } }
+.hero .facts { margin-top: 28px; }
+.cta-band h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
