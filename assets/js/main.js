@@ -1,5 +1,7 @@
-// cemantebelli.com: mobile menu and contact form
+// cemantebelli.com: mobile menu and contact form (English and Turkish)
 document.addEventListener("DOMContentLoaded", () => {
+  const tr = document.documentElement.lang === "tr";
+
   // Mobile menu
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("nav.primary");
@@ -16,6 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = document.getElementById("form-status");
   const button = form.querySelector('button[type="submit"]');
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const text = tr
+    ? {
+        sending: "Gönderiliyor…",
+        okTitle: "Teşekkürler, mesajınız gönderildi.",
+        okBody: "Cem en kısa zamanda size e-posta ile dönüş yapacak.",
+        errTitle: "Mesajınız gönderilemedi.",
+        errBody: 'Lütfen biraz sonra tekrar deneyin ya da doğrudan <a href="mailto:antebellicem@gmail.com">antebellicem@gmail.com</a> adresine yazın.',
+      }
+    : {
+        sending: "Sending…",
+        okTitle: "Thank you, your message has been sent.",
+        okBody: "Cem will reply to you by email as soon as he can.",
+        errTitle: "Sorry, your message could not be sent.",
+        errBody: 'Please try again in a moment, or email Cem directly at <a href="mailto:antebellicem@gmail.com">antebellicem@gmail.com</a>.',
+      };
 
   function fieldValid(input) {
     const value = input.value.trim();
@@ -23,27 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input.type === "email" && value && !emailPattern.test(value)) return false;
     return true;
   }
-
   function showState(input) {
     const wrap = input.closest(".field");
-    if (wrap) wrap.classList.toggle("invalid", !fieldValid(input));
+    const bad = !fieldValid(input);
+    wrap.classList.toggle("invalid", bad);
+    input.setAttribute("aria-invalid", bad ? "true" : "false");
   }
 
-  const required = form.querySelectorAll("[required]");
-  required.forEach((input) => {
+  const checked = form.querySelectorAll("[required], input[type=email]");
+  checked.forEach((input) => {
     input.addEventListener("blur", () => showState(input));
     input.addEventListener("input", () => {
       if (input.closest(".field").classList.contains("invalid")) showState(input);
     });
   });
 
+  let sending = false;
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (sending) return; // no duplicate submissions
     status.className = "form-status";
     status.innerHTML = "";
 
     let firstInvalid = null;
-    required.forEach((input) => {
+    checked.forEach((input) => {
       showState(input);
       if (!fieldValid(input) && !firstInvalid) firstInvalid = input;
     });
@@ -52,9 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    sending = true;
     const label = button.textContent;
     button.disabled = true;
-    button.textContent = "Sending…";
+    button.textContent = text.sending;
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -65,14 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!data.success) throw new Error(data.message || "Send failed");
       form.reset();
       status.className = "form-status ok";
-      status.innerHTML = "<p><strong>Thank you! Your message has been sent.</strong></p><p>I’ll get back to you as soon as I can.</p>";
+      status.innerHTML = "<p><strong>" + text.okTitle + "</strong></p><p>" + text.okBody + "</p>";
     } catch (err) {
       status.className = "form-status err";
-      status.innerHTML = '<p><strong>Sorry, your message could not be sent.</strong></p><p>Please try again in a moment, or email me directly at <a href="mailto:antebellicem@gmail.com">antebellicem@gmail.com</a>.</p>';
+      status.innerHTML = "<p><strong>" + text.errTitle + "</strong></p><p>" + text.errBody + "</p>";
     } finally {
+      sending = false;
       button.disabled = false;
       button.textContent = label;
-      status.scrollIntoView({ behavior: "smooth", block: "center" });
+      status.focus();
     }
   });
 });
