@@ -474,3 +474,9 @@ footer.site .foot-lang span[aria-current] { background: #efe6dc; color: var(--in
 @media (max-width: 640px) { .lesson-info { grid-template-columns: 1fr; } .lesson-info div { border-right: 0; border-bottom: 1px solid var(--line); } .lesson-info div:last-child { border-bottom: 0; } }
 .hero .facts { margin-top: 28px; }
 .cta-band h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+
+/* "Learn Turkish from Türkiye, wherever you are." band under the English hero */
+.from-turkiye { background: var(--clay-wash); text-align: center; padding: 72px 0; }
+.from-turkiye .narrow { margin: 0 auto; }
+.from-turkiye .lede { color: var(--text); }
+.from-turkiye p:last-child { margin-bottom: 0; color: var(--muted); }
